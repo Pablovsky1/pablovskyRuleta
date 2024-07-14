@@ -82,7 +82,7 @@
 .link-generator a {
     color: #007bff;
     text-decoration: none;
-    font-size: 18px; /* Aumenta el tamaño del texto del enlace */
+    font-size: 20px; /* Aumenta el tamaño del texto del enlace */
 }
 
 .link-generator a:hover {

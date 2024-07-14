@@ -36,11 +36,11 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <h1>Agregar Nombres</h1>
+            <h1>Agregar opciones</h1>
             <div className="names-input">
                 <input
                     type="text"
-                    placeholder="Ingrese un nombre"
+                    placeholder="Ingresar opción"
                     value={inputValue}
                     onChange={handleInputChange}
                     onKeyDown={handleKeyDown} // Maneja el evento onKeyDown
@@ -48,7 +48,7 @@ const Home = () => {
                 <button onClick={handleAddName}>Agregar</button>
             </div>
             <div className="names-list">
-                <h2>Nombres agregados:</h2>
+                <h2>Opciones agregadas:</h2>
                 <ul>
                     {names.map((name, index) => (
                         <li key={index}>
@@ -59,10 +59,9 @@ const Home = () => {
                 </ul>
             </div>
             <div className="link-generator">
-                <h2>Generar enlace:</h2>
                 <p>
                     <Link to={`/ruleta?${names.map(name => name.trim()).join('&')}`}>
-                        Ver Ruleta
+                        Comenzar
                     </Link>
                 </p>
             </div>

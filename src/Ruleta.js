@@ -5,7 +5,7 @@ import './Ruleta.css';
 const Ruleta = () => {
     const location = useLocation();
     const [spinAngle, setSpinAngle] = useState(0);
-    const [selectedSegment, setSelectedSegment] = useState(null);
+    const [selectedName, setSelectedName] = useState('');
     const [spinning, setSpinning] = useState(false);
     const timerRef = useRef(null);
 
@@ -24,12 +24,13 @@ const Ruleta = () => {
         if (!spinning) {
             // Determine which segment is on top
             const topIndex = Math.floor(((360 - (spinAngle % 360)) % 360) / (360 / values.length));
-            setSelectedSegment(topIndex);
+            setSelectedName(values[topIndex]);
         }
-    }, [spinAngle, spinning, values.length]);
+    }, [spinAngle, spinning, values]);
 
     const spinWheel = () => {
         if (spinning) return;
+        setSelectedName();
         const randomIndex = Math.floor(Math.random() * values.length);
         const anglePerSegment = 360 / values.length;
         const randomAngle = randomIndex * anglePerSegment + (Math.random() * anglePerSegment);
@@ -42,24 +43,48 @@ const Ruleta = () => {
         }, 4000); // 4 segundos (ajusta según la duración de la animación de giro)
     };
 
+    const handleShareResult = () => {
+        const shareText = `El resultado de la ruleta fue: "${selectedName}"`;
+        if (navigator.share) {
+            navigator.share({
+                title: 'Resultado de la Ruleta',
+                text: shareText,
+            })
+            .then(() => console.log('Resultado compartido correctamente.'))
+            .catch((error) => console.error('Error al compartir resultado:', error));
+        } else {
+            console.log('La API de compartir no está soportada en este navegador.');
+            // Aquí podrías agregar un fallback o instrucciones para compartir manualmente
+        }
+    };
+
+
     return (
         <div className="ruleta-container">
-            <h1>Ruleta</h1>
-            <div className="ruleta" style={{ transform: `rotate(${spinAngle}deg)` }}>
-                {values.map((value, index) => (
-                    <div
-                        key={index}
-                        className={`segment ${index === selectedSegment && !spinning ? 'selected' : ''}`}
-                        style={{ transform: `rotate(${index * (360 / values.length)}deg)` }}
-                    >
-                        {value}
-                    </div>
-                ))}
-            </div>
-            <button className="spin-button" onClick={spinWheel} disabled={spinning}>
-                {spinning ? 'Girando...' : 'Girar la ruleta'}
-            </button>
+        <h1>Ruleta</h1>
+        <div className="ruleta" style={{ transform: `rotate(${spinAngle}deg)` }}>
+            {values.map((value, index) => (
+                <div
+                    key={index}
+                    className={`segment ${index === values.indexOf(selectedName) && !spinning ? 'selected' : ''}`}
+                    style={{ transform: `rotate(${index * (360 / values.length)}deg)` }}
+                >
+                    {value}
+                </div>
+            ))}
         </div>
+        <div className="selected-name">
+            {selectedName && <p>Seleccionado: {selectedName}</p>}
+        </div>
+        <button className="spin-button" onClick={spinWheel} disabled={spinning}>
+            {spinning ? 'Girando...' : 'Girar la ruleta'}
+        </button>
+        <button className="share-button" onClick={handleShareResult} disabled={!selectedName}>
+    Compartir resultado
+</button>
+        <button className="back-button" onClick={() => window.history.back()}>Volver a la Home</button>
+   
+    </div>
     );
 };
 

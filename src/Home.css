@@ -1,0 +1,90 @@
+.home-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #222; /* Color de fondo oscuro */
+    color: white; /* Color de texto blanco */
+}
+
+.names-input {
+    margin-bottom: 20px;
+}
+
+.names-input input {
+    padding: 10px;
+    margin-right: 10px;
+    width: 200px;
+    font-size: 16px;
+    background-color: #333; /* Color de fondo para el input */
+    color: white; /* Color de texto blanco */
+    border: 1px solid #666; /* Borde gris oscuro */
+    border-radius: 4px;
+}
+
+.names-input button {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff; /* Color de fondo azul */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.names-input button:hover {
+    background-color: #0056b3; /* Color de fondo azul más oscuro en hover */
+}
+
+.names-list {
+    margin-bottom: 20px;
+}
+
+.names-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.names-list li {
+    margin-bottom: 10px; /* Espacio entre nombres */
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    justify-content: space-between; /* Distribuye los elementos en el espacio disponible */
+    background-color: #333; /* Color de fondo oscuro para los elementos de la lista */
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.names-list li span {
+    flex-grow: 1; /* Hace que el nombre ocupe todo el espacio disponible */
+    margin-right: 10px; /* Espacio entre nombre y botón */
+    color: white; /* Color de texto blanco */
+}
+
+.names-list li button {
+    padding: 5px 10px; /* Ajuste del padding del botón */
+    cursor: pointer;
+    background-color: #dc3545; /* Color de fondo rojo */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.names-list li button:hover {
+    background-color: #c82333; /* Color de fondo rojo más oscuro en hover */
+}
+
+.link-generator {
+    margin-bottom: 20px;
+}
+
+.link-generator a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 18px; /* Aumenta el tamaño del texto del enlace */
+}
+
+.link-generator a:hover {
+    text-decoration: underline;
+}

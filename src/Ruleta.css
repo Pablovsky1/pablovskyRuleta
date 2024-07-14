@@ -1,10 +1,15 @@
+body{
+    background-color: #222; /* Color de fondo oscuro */
+  }
+  
 .ruleta-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 20px; /* Añade espacio interno para separar del borde de la pantalla */
+    height: 100vh; /* Usa el 100% del alto de la ventana */
+    padding: 20px;
+    background-color: #222; /* Color de fondo oscuro */
+    color: white; /* Color de texto blanco */
 }
 
 .ruleta {
@@ -19,39 +24,92 @@
     justify-content: center;
     position: relative;
     transition: transform 4s ease-out;
+    background-color: #fff; /* Color de fondo blanco inicial */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Sombra suave */
 }
 
 .segment {
-    width: 50%; /* Cada segmento ocupa la mitad del ancho de la ruleta */
-    height: 50%; /* Cada segmento ocupa la mitad del alto de la ruleta */
-    border-top-left-radius: 50%; /* Hace los segmentos redondeados */
-    border-top-right-radius: 50%; /* Hace los segmentos redondeados */
+    width: 150px;
+    height: 150px;
+    border-top-left-radius: 150px;
+    border-top-right-radius: 150px;
     position: absolute;
     top: 0;
     left: 50%;
     transform-origin: 0% 100%;
     text-align: center;
-    line-height: 150px; /* Ajusta según el tamaño de los segmentos */
+    line-height: 150px;
     color: white;
-    transition: background-color 0.3s ease;
-}
-
-.segment.selected {
-    background-color: #ffc107; /* Cambia el color según tu preferencia */
-    box-shadow: 0 0 20px #ffc107; /* Efecto de sombra o iluminación */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Añade transition para suavizar los cambios */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra suave */
 }
 
 .segment:nth-child(odd) {
-    background-color: #f44336;
+    background-color: #f44336; /* Rojo */
 }
 
 .segment:nth-child(even) {
-    background-color: #4caf50;
+    background-color: #2196f3; /* Azul */
+}
+
+.segment:nth-child(3n) {
+    background-color: #4caf50; /* Verde */
+}
+
+.segment:nth-child(4n) {
+    background-color: #ff9800; /* Naranja */
+}
+
+.segment.selected {
+    background-color: #ffc107; /* Color de fondo del segmento seleccionado */
+    box-shadow: 0 0 20px #ffc107; /* Sombra más pronunciada */
+    transform: scale(1.1); /* Escala el segmento seleccionado */
+}
+
+.segment:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
 }
 
 .spin-button {
     margin-top: 20px;
     padding: 10px 20px;
+    background-color: #007bff; /* Color de fondo azul */
+    color: white;
+    border: none;
+    border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
+}
+
+.back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff; /* Color de fondo azul */
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.back-button:hover {
+    background-color: #0056b3; /* Color de fondo azul más oscuro en hover */
+}
+
+.selected-name {
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+.share-button{
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #12972f; /* Color de fondo azul */
+    color: white;
+    border: none;
+    border-radius: 4px;
+
 }

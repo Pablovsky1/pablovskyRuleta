@@ -1,6 +1,6 @@
-// Home.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Home.css';
 
 const Home = () => {
     const [names, setNames] = useState([]);
@@ -10,7 +10,6 @@ const Home = () => {
         let value = event.target.value;
         // Filtrar caracteres no deseados y reemplazar espacios con _
         value = value.replace(/[^a-zA-Z_\s]/g, '');
-        value = value.replace(/\s/g, '_');
         setInputValue(value);
     };
 
@@ -19,6 +18,13 @@ const Home = () => {
             const updatedNames = [...names, inputValue.trim()];
             setNames(updatedNames);
             setInputValue('');
+        }
+    };
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Evita que se envíe el formulario
+            handleAddName(); // Llama a la función para agregar el nombre
         }
     };
 
@@ -37,6 +43,7 @@ const Home = () => {
                     placeholder="Ingrese un nombre"
                     value={inputValue}
                     onChange={handleInputChange}
+                    onKeyDown={handleKeyDown} // Maneja el evento onKeyDown
                 />
                 <button onClick={handleAddName}>Agregar</button>
             </div>
@@ -54,7 +61,7 @@ const Home = () => {
             <div className="link-generator">
                 <h2>Generar enlace:</h2>
                 <p>
-                    <Link to={`/ruleta?names=${names.map(name => name.trim()).join('&')}`}>
+                    <Link to={`/ruleta?${names.map(name => name.trim()).join('&')}`}>
                         Ver Ruleta
                     </Link>
                 </p>

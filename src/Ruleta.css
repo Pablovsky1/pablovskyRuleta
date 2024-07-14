@@ -1,0 +1,57 @@
+.ruleta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px; /* Añade espacio interno para separar del borde de la pantalla */
+}
+
+.ruleta {
+    width: 80vw; /* Usa el 80% del ancho de la pantalla */
+    max-width: 300px; /* Máximo de 300px para no ocupar demasiado espacio */
+    height: 80vw; /* Usa el 80% del ancho de la pantalla */
+    max-height: 300px; /* Máximo de 300px para no ocupar demasiado espacio */
+    border-radius: 50%;
+    border: 5px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 4s ease-out;
+}
+
+.segment {
+    width: 50%; /* Cada segmento ocupa la mitad del ancho de la ruleta */
+    height: 50%; /* Cada segmento ocupa la mitad del alto de la ruleta */
+    border-top-left-radius: 50%; /* Hace los segmentos redondeados */
+    border-top-right-radius: 50%; /* Hace los segmentos redondeados */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform-origin: 0% 100%;
+    text-align: center;
+    line-height: 150px; /* Ajusta según el tamaño de los segmentos */
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.segment.selected {
+    background-color: #ffc107; /* Cambia el color según tu preferencia */
+    box-shadow: 0 0 20px #ffc107; /* Efecto de sombra o iluminación */
+}
+
+.segment:nth-child(odd) {
+    background-color: #f44336;
+}
+
+.segment:nth-child(even) {
+    background-color: #4caf50;
+}
+
+.spin-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}

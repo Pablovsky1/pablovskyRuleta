@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pablovskyRuleta/static/css/main.0d0bed7b.css",
+    "main.js": "/pablovskyRuleta/static/js/main.d14c0e11.js",
+    "index.html": "/pablovskyRuleta/index.html",
+    "main.0d0bed7b.css.map": "/pablovskyRuleta/static/css/main.0d0bed7b.css.map",
+    "main.d14c0e11.js.map": "/pablovskyRuleta/static/js/main.d14c0e11.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0d0bed7b.css",
+    "static/js/main.d14c0e11.js"
+  ]
+}

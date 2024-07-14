@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/pablovskyRuleta/static/css/main.fe21ea14.css",
-    "main.js": "/pablovskyRuleta/static/js/main.f2d406a8.js",
+    "main.js": "/pablovskyRuleta/static/js/main.02e7719f.js",
     "index.html": "/pablovskyRuleta/index.html",
     "main.fe21ea14.css.map": "/pablovskyRuleta/static/css/main.fe21ea14.css.map",
-    "main.f2d406a8.js.map": "/pablovskyRuleta/static/js/main.f2d406a8.js.map"
+    "main.02e7719f.js.map": "/pablovskyRuleta/static/js/main.02e7719f.js.map"
   },
   "entrypoints": [
     "static/css/main.fe21ea14.css",
-    "static/js/main.f2d406a8.js"
+    "static/js/main.02e7719f.js"
   ]
 }

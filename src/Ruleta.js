@@ -58,6 +58,19 @@ const Ruleta = () => {
         }
     };
 
+    const shareUrl = () => {
+        const url = window.location.href;
+            if (navigator.share) {
+                navigator.share({
+                    url
+                })
+                .then(() => console.log('Resultado compartido correctamente.'))
+                .catch((error) => console.error('Error al compartir resultado:', error));
+            } else {
+                console.log('La API de compartir no está soportada en este navegador.');
+                // Aquí podrías agregar un fallback o instrucciones para compartir manualmente
+            }
+    };
 
     return (
         <div className="ruleta-container">
@@ -82,8 +95,11 @@ const Ruleta = () => {
         <button className="share-button" onClick={handleShareResult} disabled={!selectedName}>
     Compartir resultado
 </button>
-        <button className="back-button" onClick={() => window.history.back()}>Volver a la Home</button>
-   
+        <button className="share-button" onClick={shareUrl}>
+                 Compartir ruleta
+            </button>
+            <button className="back-button" onClick={() => window.history.back()}>Volver a la Home</button>
+
     </div>
     );
 };
